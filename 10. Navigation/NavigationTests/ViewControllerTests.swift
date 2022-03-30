@@ -6,13 +6,31 @@
 //
 
 @testable import Navigation
+import ViewControllerPresentationSpy
 import XCTest
 
 class ViewControllerTests: XCTestCase {
-    func test_tappingCodePushButton_shouldPushCodeNextViewController() {
+    private var sut: ViewController!
+    
+    override func setUp() {
+        super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let sut: ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        sut = storyboard.instantiateViewController(identifier: String(describing: ViewController.self))
         sut.loadViewIfNeeded()
+    }
+    
+    override func tearDown() {
+        executeRunLoop()
+        sut = nil
+        super.tearDown()
+    }
+    
+    func test_navigationController_shouldNotBeNil() {
+        let _ = UINavigationController(rootViewController: sut)
+        XCTAssertNotNil(sut.navigationController)
+    }
+    
+    func test_tappingCodePushButton_shouldPushCodeNextViewController() {
         let navigation = UINavigationController(rootViewController: sut)
         
         tap(sut.codePushButton)
@@ -27,21 +45,33 @@ class ViewControllerTests: XCTestCase {
         XCTAssertEqual(codeNextVC.label.text, "Pushed from code")
     }
     
-    func test_INCORRECT_tappingCodeModalButton_shouldPresentCodeNextViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let sut = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        
-        sut.loadViewIfNeeded()
-        
-        UIApplication.shared.windows.first?.rootViewController = sut
+    func test_tappingCodeModalButton_shouldPresentCodeNextViewController() {
+        let presentationVerifier = PresentationVerifier()
         
         tap(sut.codeModalButton)
+       
+        let codeNextVC: CodeNextViewController? = presentationVerifier.verify(animated: true, presentingViewController: sut)
         
-        let presentedVC = sut.presentedViewController
-        guard let codeNextVC = presentedVC as? CodeNextViewController else {
-            XCTFail("Expected CodeNextViewController, " + "but was \(String(describing: presentedVC))")
-            return
-        }
-        XCTAssertEqual(codeNextVC.label.text, "Modal from code")
+        XCTAssertEqual(codeNextVC?.label.text, "Modal from code")
+    }
+    
+    func test_tappingSeguePushButton_shouldShowSegueNextViewController() {
+        let presentationVerifier = PresentationVerifier()
+        putInWindow(sut)
+        
+        tap(sut.seguePushButton)
+        
+        let segueNextVC: SegueNextViewController? = presentationVerifier.verify(animated: true, presentingViewController: sut)
+        
+        XCTAssertEqual(segueNextVC?.labelText, "Pushed from segue")
+    }
+    
+    func test_tappingSegueModalButton_shouldShowSegueNextViewController() {
+        let presentationVerifier = PresentationVerifier()
+        tap(sut.segueModalButton)
+        
+        let segueNextVC: SegueNextViewController? = presentationVerifier.verify(animated: true, presentingViewController: sut)
+        
+        XCTAssertEqual(segueNextVC?.labelText, "Modal from segue")
     }
 }

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F830717927F4890500FE4677 /* ViewControllerPresentationSpy.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F830717827F4890500FE4677 /* ViewControllerPresentationSpy.xcframework */; };
 		F859429D26492A350062BC43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F859429C26492A350062BC43 /* AppDelegate.swift */; };
 		F859429F26492A350062BC43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F859429E26492A350062BC43 /* SceneDelegate.swift */; };
 		F85942A126492A350062BC43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85942A026492A350062BC43 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F830717827F4890500FE4677 /* ViewControllerPresentationSpy.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ViewControllerPresentationSpy.xcframework; sourceTree = "<group>"; };
 		F859429926492A350062BC43 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F859429C26492A350062BC43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F859429E26492A350062BC43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F830717927F4890500FE4677 /* ViewControllerPresentationSpy.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +104,7 @@
 		F85942B226492A380062BC43 /* NavigationTests */ = {
 			isa = PBXGroup;
 			children = (
+				F830717827F4890500FE4677 /* ViewControllerPresentationSpy.xcframework */,
 				F85942D026494AF80062BC43 /* ViewControllerTests.swift */,
 				F85942D226494B270062BC43 /* TestHelpers.swift */,
 				F85942B526492A380062BC43 /* Info.plist */,
