@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F830717527F4833F00FE4677 /* ViewControllerPresentationSpy.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F830717427F4833F00FE4677 /* ViewControllerPresentationSpy.xcframework */; };
 		F85942572648E3580062BC43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85942562648E3580062BC43 /* AppDelegate.swift */; };
 		F85942592648E3580062BC43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85942582648E3580062BC43 /* SceneDelegate.swift */; };
 		F859425B2648E3580062BC43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F859425A2648E3580062BC43 /* ViewController.swift */; };
@@ -15,7 +16,6 @@
 		F85942632648E3590062BC43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F85942612648E3590062BC43 /* LaunchScreen.storyboard */; };
 		F859428D2648E83C0062BC43 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F859428C2648E83C0062BC43 /* ViewControllerTests.swift */; };
 		F859428F2649285D0062BC43 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F859428E2649285D0062BC43 /* TestHelpers.swift */; };
-		F86E193027F3A7F000969367 /* ViewControllerPresentationSpy.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86E192F27F3A7EF00969367 /* ViewControllerPresentationSpy.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F830717427F4833F00FE4677 /* ViewControllerPresentationSpy.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ViewControllerPresentationSpy.xcframework; path = ../../../../../Downloads/ViewControllerPresentationSpy.xcframework; sourceTree = "<group>"; };
 		F85942532648E3580062BC43 /* Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F85942562648E3580062BC43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F85942582648E3580062BC43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		F859426F2648E3590062BC43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F859428C2648E83C0062BC43 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		F859428E2649285D0062BC43 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
-		F86E192F27F3A7EF00969367 /* ViewControllerPresentationSpy.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ViewControllerPresentationSpy.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F86E193027F3A7F000969367 /* ViewControllerPresentationSpy.xcframework in Frameworks */,
+				F830717527F4833F00FE4677 /* ViewControllerPresentationSpy.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,9 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				F859426F2648E3590062BC43 /* Info.plist */,
+				F830717427F4833F00FE4677 /* ViewControllerPresentationSpy.xcframework */,
 				F859428C2648E83C0062BC43 /* ViewControllerTests.swift */,
 				F859428E2649285D0062BC43 /* TestHelpers.swift */,
-				F86E192F27F3A7EF00969367 /* ViewControllerPresentationSpy.xcframework */,
 			);
 			path = AlertTests;
 			sourceTree = "<group>";
