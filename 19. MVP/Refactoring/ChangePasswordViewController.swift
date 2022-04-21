@@ -15,16 +15,14 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet private(set) var confirmPasswordTextField: UITextField!
     @IBOutlet private(set) var submitButton: UIButton!
     @IBOutlet private(set) var navigationBar: UINavigationBar!
-    
-    var securityToken = ""
-    lazy var passwordChanger: PasswordChanging = PasswordChanger()
-    
-    private lazy var presenter = ChangePasswordPresenter(view: self, labels: labels, securityToken: securityToken, passwordChanger: passwordChanger)
-    
     let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     let activityIndicator = UIActivityIndicatorView(style: .large)
+    lazy var passwordChanger: PasswordChanging = PasswordChanger()
+    var securityToken = ""
     
-    var labels: ChangePasswordLabels!
+    private lazy var presenter = ChangePasswordPresenter(view: self, viewModel: viewModel, securityToken: securityToken, passwordChanger: passwordChanger)
+    
+    var viewModel: ChangePasswordViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +35,14 @@ class ChangePasswordViewController: UIViewController {
         setLabels()
     }
     
+    private func setLabels() {
+        navigationBar.topItem?.title = viewModel.title
+        oldPasswordTextField.placeholder = viewModel.oldPasswordPlaceholder
+        newPasswordTextField.placeholder = viewModel.newPasswordPlaceholder
+        confirmPasswordTextField.placeholder = viewModel.confirmPasswordPlaceholder
+        submitButton.setTitle(viewModel.submitButtonLabel, for: .normal)
+    }
+    
     @IBAction private func cancel() {
         presenter.cancel()
     }
@@ -47,28 +53,6 @@ class ChangePasswordViewController: UIViewController {
                 newPassword: newPasswordTextField.text ?? "",
                 confirmPassword: confirmPasswordTextField.text ?? "")
         presenter.changePassword(passwordInputs: passwordInputs)
-    }
-    
-    private func handleFailure(_ message: String) {
-        hideActivityIndicator()
-        showAlert(message: message) { [weak self] in
-            self?.dismissModal()
-        }
-    }
-    
-    private func handleSuccess() {
-        hideActivityIndicator()
-        showAlert(message: labels.successMessage) { [weak self] in
-            self?.dismissModal()
-        }
-    }
-    
-    private func setLabels() {
-        navigationBar.topItem?.title = labels.title
-        oldPasswordTextField.placeholder = labels.oldPasswordPlaceholder
-        newPasswordTextField.placeholder = labels.newPasswordPlaceholder
-        confirmPasswordTextField.placeholder = labels.confirmPasswordPlaceholder
-        submitButton.setTitle(labels.submitButtonLabel, for: .normal)
     }
 }
 
@@ -87,7 +71,12 @@ extension ChangePasswordViewController: UITextFieldDelegate {
 
 extension ChangePasswordViewController: ChangePasswordViewCommands {
     func setCancelButtonEnabled(_ enabled: Bool) {
-        self.cancelBarButton.isEnabled = enabled
+        cancelBarButton.isEnabled = enabled
+    }
+    
+    func clearNewPasswordFields() {
+        newPasswordTextField.text = ""
+        confirmPasswordTextField.text = ""
     }
     
     func clearAllPasswordFields() {
@@ -133,7 +122,7 @@ extension ChangePasswordViewController: ChangePasswordViewCommands {
     
     private func showAlert(message: String, okAction: @escaping (UIAlertAction) -> Void) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: labels.okButtonLabel, style: .default, handler: okAction)
+        let okButton = UIAlertAction(title: viewModel.okButtonLabel, style: .default, handler: okAction)
         
         alertController.addAction(okButton)
         alertController.preferredAction = okButton
@@ -142,7 +131,9 @@ extension ChangePasswordViewController: ChangePasswordViewCommands {
     
     func showAlert(message: String, action: @escaping () -> Void) {
         let wrappedAction: (UIAlertAction) -> Void = { _ in action() }
-        showAlert(message: message) { wrappedAction($0) }
+        showAlert(message: message) {
+            wrappedAction($0)
+        }
     }
     
     func updateInputFocus(_ inputFocus: InputFocus) {
@@ -156,10 +147,5 @@ extension ChangePasswordViewController: ChangePasswordViewCommands {
         case .confirmPassword:
             confirmPasswordTextField.becomeFirstResponder()
         }
-    }
-    
-    func clearNewPasswordFields() {
-        newPasswordTextField.text = ""
-        confirmPasswordTextField.text = ""
     }
 }

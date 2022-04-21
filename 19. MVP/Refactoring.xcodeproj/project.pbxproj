@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,11 @@
 		F83D467D265072D60070C595 /* MockPasswordChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D467726505C9B0070C595 /* MockPasswordChanger.swift */; };
 		F851FC0126529113009AF6D9 /* ChangePasswordViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851FC0026529113009AF6D9 /* ChangePasswordViewControllerSnapshotTests.swift */; };
 		F8BE531E2653E09600570885 /* ChangePasswordLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE531D2653E09600570885 /* ChangePasswordLabels.swift */; };
+		F8C7F56E281160FE00DA8DBD /* ViewControllerPresentationSpy.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C7F56D281160FE00DA8DBD /* ViewControllerPresentationSpy.xcframework */; };
+		F8C7F5712811610D00DA8DBD /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = F8C7F5702811610D00DA8DBD /* iOSSnapshotTestCase */; };
+		F8C7F574281161EA00DA8DBD /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = F8C7F573281161EA00DA8DBD /* iOSSnapshotTestCase */; };
+		F8C7F576281161EA00DA8DBD /* iOSSnapshotTestCase in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F8C7F573281161EA00DA8DBD /* iOSSnapshotTestCase */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		F8C7F578281162EC00DA8DBD /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C7F577281162EC00DA8DBD /* ChangePasswordViewModel.swift */; };
 		F8E115182657D6A400AC1E72 /* ChangePasswordViewCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E115172657D6A400AC1E72 /* ChangePasswordViewCommands.swift */; };
 		F8E1151A2657D71900AC1E72 /* ChangePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E115192657D71900AC1E72 /* ChangePasswordPresenter.swift */; };
 		F8E1151C265A197200AC1E72 /* PasswordInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E1151B265A197200AC1E72 /* PasswordInputs.swift */; };
@@ -34,6 +39,20 @@
 			remoteInfo = Refactoring;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F8C7F575281161EA00DA8DBD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8C7F576281161EA00DA8DBD /* iOSSnapshotTestCase in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F83D463E264FA9940070C595 /* Refactoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refactoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +72,8 @@
 		F83D4679265072AB0070C595 /* ChangePasswordViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewControllerTests.swift; sourceTree = "<group>"; };
 		F851FC0026529113009AF6D9 /* ChangePasswordViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		F8BE531D2653E09600570885 /* ChangePasswordLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordLabels.swift; sourceTree = "<group>"; };
+		F8C7F56D281160FE00DA8DBD /* ViewControllerPresentationSpy.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ViewControllerPresentationSpy.xcframework; sourceTree = "<group>"; };
+		F8C7F577281162EC00DA8DBD /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		F8E115172657D6A400AC1E72 /* ChangePasswordViewCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewCommands.swift; sourceTree = "<group>"; };
 		F8E115192657D71900AC1E72 /* ChangePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenter.swift; sourceTree = "<group>"; };
 		F8E1151B265A197200AC1E72 /* PasswordInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputs.swift; sourceTree = "<group>"; };
@@ -63,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C7F5712811610D00DA8DBD /* iOSSnapshotTestCase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C7F574281161EA00DA8DBD /* iOSSnapshotTestCase in Frameworks */,
+				F8C7F56E281160FE00DA8DBD /* ViewControllerPresentationSpy.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +106,7 @@
 				F83D4640264FA9940070C595 /* Refactoring */,
 				F83D4657264FA9990070C595 /* RefactoringTests */,
 				F83D463F264FA9940070C595 /* Products */,
+				F8C7F572281161EA00DA8DBD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,17 +124,18 @@
 			children = (
 				F83D4641264FA9940070C595 /* AppDelegate.swift */,
 				F83D4643264FA9940070C595 /* SceneDelegate.swift */,
+				F8E115172657D6A400AC1E72 /* ChangePasswordViewCommands.swift */,
+				F83D4673264FB05E0070C595 /* ChangePasswordViewController.swift */,
+				F8C7F577281162EC00DA8DBD /* ChangePasswordViewModel.swift */,
+				F8E115192657D71900AC1E72 /* ChangePasswordPresenter.swift */,
+				F83D4671264FAC340070C595 /* PasswordChanger.swift */,
+				F8E1151B265A197200AC1E72 /* PasswordInputs.swift */,
 				F83D4645264FA9940070C595 /* ViewController.swift */,
 				F83D4647264FA9940070C595 /* Main.storyboard */,
 				F83D464A264FA9980070C595 /* Assets.xcassets */,
 				F83D464C264FA9980070C595 /* LaunchScreen.storyboard */,
 				F83D464F264FA9980070C595 /* Info.plist */,
-				F83D4671264FAC340070C595 /* PasswordChanger.swift */,
-				F8E1151B265A197200AC1E72 /* PasswordInputs.swift */,
-				F8E115172657D6A400AC1E72 /* ChangePasswordViewCommands.swift */,
-				F83D4673264FB05E0070C595 /* ChangePasswordViewController.swift */,
 				F8BE531D2653E09600570885 /* ChangePasswordLabels.swift */,
-				F8E115192657D71900AC1E72 /* ChangePasswordPresenter.swift */,
 			);
 			path = Refactoring;
 			sourceTree = "<group>";
@@ -117,6 +143,7 @@
 		F83D4657264FA9990070C595 /* RefactoringTests */ = {
 			isa = PBXGroup;
 			children = (
+				F8C7F56D281160FE00DA8DBD /* ViewControllerPresentationSpy.xcframework */,
 				F83D4679265072AB0070C595 /* ChangePasswordViewControllerTests.swift */,
 				F851FC0026529113009AF6D9 /* ChangePasswordViewControllerSnapshotTests.swift */,
 				F83D467726505C9B0070C595 /* MockPasswordChanger.swift */,
@@ -124,6 +151,13 @@
 				F83D465A264FA9990070C595 /* Info.plist */,
 			);
 			path = RefactoringTests;
+			sourceTree = "<group>";
+		};
+		F8C7F572281161EA00DA8DBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +176,9 @@
 			dependencies = (
 			);
 			name = Refactoring;
+			packageProductDependencies = (
+				F8C7F5702811610D00DA8DBD /* iOSSnapshotTestCase */,
+			);
 			productName = Refactoring;
 			productReference = F83D463E264FA9940070C595 /* Refactoring.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +190,7 @@
 				F83D4650264FA9990070C595 /* Sources */,
 				F83D4651264FA9990070C595 /* Frameworks */,
 				F83D4652264FA9990070C595 /* Resources */,
+				F8C7F575281161EA00DA8DBD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +198,9 @@
 				F83D4656264FA9990070C595 /* PBXTargetDependency */,
 			);
 			name = RefactoringTests;
+			packageProductDependencies = (
+				F8C7F573281161EA00DA8DBD /* iOSSnapshotTestCase */,
+			);
 			productName = RefactoringTests;
 			productReference = F83D4654264FA9990070C595 /* RefactoringTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -191,6 +232,9 @@
 				Base,
 			);
 			mainGroup = F83D4635264FA9940070C595;
+			packageReferences = (
+				F8C7F56F2811610D00DA8DBD /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */,
+			);
 			productRefGroup = F83D463F264FA9940070C595 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,6 +275,7 @@
 				F8BE531E2653E09600570885 /* ChangePasswordLabels.swift in Sources */,
 				F83D4642264FA9940070C595 /* AppDelegate.swift in Sources */,
 				F8E1151C265A197200AC1E72 /* PasswordInputs.swift in Sources */,
+				F8C7F578281162EC00DA8DBD /* ChangePasswordViewModel.swift in Sources */,
 				F8E115182657D6A400AC1E72 /* ChangePasswordViewCommands.swift in Sources */,
 				F83D4644264FA9940070C595 /* SceneDelegate.swift in Sources */,
 				F83D4674264FB05E0070C595 /* ChangePasswordViewController.swift in Sources */,
@@ -508,6 +553,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F8C7F56F2811610D00DA8DBD /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uber/ios-snapshot-test-case";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F8C7F5702811610D00DA8DBD /* iOSSnapshotTestCase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8C7F56F2811610D00DA8DBD /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
+			productName = iOSSnapshotTestCase;
+		};
+		F8C7F573281161EA00DA8DBD /* iOSSnapshotTestCase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8C7F56F2811610D00DA8DBD /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
+			productName = iOSSnapshotTestCase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F83D4636264FA9940070C595 /* Project object */;
 }

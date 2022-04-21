@@ -9,13 +9,13 @@ import Foundation
 
 class ChangePasswordPresenter {
     private unowned var view: ChangePasswordViewCommands!
-    private let labels: ChangePasswordLabels
+    private let viewModel: ChangePasswordViewModel
     private var securityToken: String
     private var passwordChanger: PasswordChanging
     
-    init(view: ChangePasswordViewCommands, labels: ChangePasswordLabels, securityToken: String, passwordChanger: PasswordChanging) {
+    init(view: ChangePasswordViewCommands, viewModel: ChangePasswordViewModel, securityToken: String, passwordChanger: PasswordChanging) {
         self.view = view
-        self.labels = labels
+        self.viewModel = viewModel
         self.securityToken = securityToken
         self.passwordChanger = passwordChanger
     }
@@ -44,14 +44,18 @@ class ChangePasswordPresenter {
             securityToken: securityToken,
             oldPassword: passwordInputs.oldPassword,
             newPassword: passwordInputs.newPassword,
-            onSuccess: handleSuccess,
-            onFailure: handleFailure
+            onSuccess: { [weak self] in
+                self?.handleSuccess()
+            },
+            onFailure: { [weak self] message in
+                self?.handleFailure(message)
+            }
         )
     }
     
     private func handleSuccess() {
         view.hideActivityIndicator()
-        view.showAlert(message: labels.successMessage) { [weak self] in
+        view.showAlert(message: viewModel.successMessage) { [weak self] in
             self?.view.dismissModal()
         }
     }
@@ -59,7 +63,7 @@ class ChangePasswordPresenter {
     private func handleFailure(_ message: String) {
         view.hideActivityIndicator()
         view.showAlert(message: message) { [weak self] in
-            self?.view.dismissModal()
+            self?.startOver()
         }
     }
     
@@ -81,21 +85,21 @@ class ChangePasswordPresenter {
         }
         
         if passwordInputs.isNewPasswordEmpty {
-            view.showAlert(message: labels.enterNewPasswordMessage) { [weak self] in
+            view.showAlert(message: viewModel.enterNewPasswordMessage) { [weak self] in
                 self?.view.updateInputFocus(.newPassword)
             }
             return false
         }
         
         if passwordInputs.isNewPasswordTooShort {
-            view.showAlert(message: labels.newPasswordTooShortMessage) { [weak self] in
+            view.showAlert(message: viewModel.newPasswordTooShortMessage) { [weak self] in
                 self?.resetNewPasswords()
             }
             return false
         }
         
         if passwordInputs.isConfirmPasswordMismatched {
-            view.showAlert(message: labels.confirmationDoesNotMatchMessage) { [weak self] in
+            view.showAlert(message: viewModel.confirmationDoesNotMatchMessage) { [weak self] in
                 self?.resetNewPasswords()
             }
             return false

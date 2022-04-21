@@ -27,6 +27,5 @@ class ViewController: UIViewController {
                 failureMessage: "Sorry, something went wrong.")
         }
     }
-
 }
 
